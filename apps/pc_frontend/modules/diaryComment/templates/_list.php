@@ -1,8 +1,8 @@
 <script type="text/javascript">
 function addreply(name){
-document.getElementById('diary_comment_body').value = document.getElementById('diary_comment_body').value + "@" + name + "\n";
-var element = document.getElementById('diary_comment_body'); 
-element.focus();
+  var element = $('#diary_comment_body'); 
+  element.val(element.val() + "@" + name + "\n");
+  element.focus();
 }
 </script>
 
