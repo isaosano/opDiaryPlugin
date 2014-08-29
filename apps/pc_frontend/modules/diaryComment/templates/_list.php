@@ -1,3 +1,11 @@
+<script type="text/javascript">
+function addreply(name){
+document.getElementById('diary_comment_body').value = document.getElementById('diary_comment_body').value + "@" + name + "\n";
+var element = document.getElementById('diary_comment_body'); 
+element.focus();
+}
+</script>
+
 <?php use_helper('opDiary') ?>
 
 <?php if ($pager->getNbResults()): ?>
@@ -40,6 +48,7 @@
 <?php if ($diary->member_id === $sf_user->getMemberId() || $comment->member_id === $sf_user->getMemberId()): ?>
  <?php echo link_to(__('Delete'), 'diary_comment_delete_confirm', $comment) ?>
 <?php endif; ?>
+<a class="reply" href="javascript:void();" onclick="addreply('<?php echo $comment->Member->name ?>');"><?php echo __('Reply') ?></a>
 </p>
 </div>
 <div class="body">
